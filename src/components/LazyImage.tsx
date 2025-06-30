@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 
 interface LazyImageProps {
@@ -48,29 +47,16 @@ const LazyImage: React.FC<LazyImageProps> = ({
   };
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      <img
-        ref={imgRef}
-        src={isInView ? src : placeholder}
-        alt={alt}
-        className={`w-full h-full object-cover transition-opacity duration-500 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-        onLoad={handleLoad}
-        onError={handleError}
-        loading="lazy"
-      />
-      {!isLoaded && !hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-          <div className="w-6 h-6 border-2 border-gray-600 border-t-amber-500 rounded-full animate-spin"></div>
-        </div>
-      )}
-      {hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 text-gray-400">
-          <span className="text-sm">Image failed to load</span>
-        </div>
-      )}
-    </div>
+    <img
+      ref={imgRef}
+      src={isInView ? src : placeholder}
+      alt={alt}
+      className={className + (isLoaded ? "" : " opacity-50 blur-sm")}
+      loading="lazy"
+      onLoad={handleLoad}
+      onError={handleError}
+      style={{ transition: 'filter 0.3s, opacity 0.3s' }}
+    />
   );
 };
 
