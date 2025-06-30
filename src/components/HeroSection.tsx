@@ -101,7 +101,7 @@ const HeroSection = () => {
           <div className="mb-6 sm:mb-8 h-12 sm:h-16 flex items-center justify-center">
             <div className="text-xl sm:text-2xl md:text-4xl font-light text-gray-300">
               <span>I'm a </span>
-              <span className="text-amber-400 font-semibold transition-all duration-500 inline-block">
+              <span className="text-amber-400 font-semibold transition-all duration-200 inline-block">
                 {texts[currentText]}
               </span>
             </div>
