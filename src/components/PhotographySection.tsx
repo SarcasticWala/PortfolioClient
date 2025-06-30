@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Camera } from 'lucide-react';
 import LazyImage from './LazyImage';
@@ -8,25 +7,25 @@ const PhotographySection = () => {
     {
       id: 1,
       title: "Portrait Session",
-      src: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1587&q=80",
+      src: "/portrait-session.jpg", // moved to public/
       category: "Portrait"
     },
     {
       id: 2,
       title: "Nature Landscape",
-      src: "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      src: "/nature-landscape.jpg", // moved to public/
       category: "Landscape"
     },
     {
       id: 3,
       title: "Street Photography",
-      src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      src: "/street-photography.jpg", // moved to public/
       category: "Street"
     },
     {
       id: 4,
       title: "Event Photography",
-      src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80",
+      src: "/event-photography.jpg", // moved to public/
       category: "Event"
     }
   ];

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Video } from 'lucide-react';
 import LazyImage from './LazyImage';
@@ -8,19 +7,19 @@ const VideoSection = () => {
     {
       id: 1,
       title: "Wedding Highlight Reel",
-      thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=2052&q=80",
+      thumbnail: "/wedding-highlight.jpg", // moved to public/
       category: "Wedding"
     },
     {
       id: 2,
       title: "Corporate Event Coverage",
-      thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+      thumbnail: "/corporate-event.jpg", // moved to public/
       category: "Corporate"
     },
     {
       id: 3,
       title: "Music Video Production",
-      thumbnail: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      thumbnail: "/music-video.jpg", // moved to public/
       category: "Music"
     }
   ];

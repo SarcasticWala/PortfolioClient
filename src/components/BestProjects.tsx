@@ -1,4 +1,3 @@
-
 import React from 'react';
 import LazyImage from './LazyImage';
 
@@ -8,7 +7,7 @@ const BestProjects = () => {
       id: 1,
       title: "Award-Winning Wedding Film",
       description: "A cinematic masterpiece capturing the magic of love",
-      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1587&q=80",
+      image: "/wedding-film.jpg", // moved to public/
       type: "Video",
       award: "Best Wedding Film 2024"
     },
@@ -16,7 +15,7 @@ const BestProjects = () => {
       id: 2,
       title: "Featured Portrait Series",
       description: "Intimate portraits showcasing human emotion and connection",
-      image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-4.0.3&auto=format&fit=crop&w=2832&q=80",
+      image: "/portrait-series.jpg", // moved to public/
       type: "Photography",
       award: "Portrait Excellence Award"
     }
