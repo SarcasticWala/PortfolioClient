@@ -1,20 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Camera, Video } from 'lucide-react';
 import pic from '../../public/assets/img.jpg';
 
-declare global {
-  interface Window {
-    VANTA: any;
-    THREE: any;
-  }
-}
-
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentText, setCurrentText] = useState(0);
-  const vantaRef = useRef(null);
-  const vantaEffect = useRef<any>(null);
 
   const texts = [
     'Visual Storyteller',
@@ -32,65 +23,20 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
-
-    if (
-      !vantaEffect.current &&
-      window.VANTA &&
-      window.VANTA.BIRDS &&
-      vantaRef.current
-    ) {
-      vantaEffect.current = window.VANTA.BIRDS({
-       el: vantaRef.current,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        scale: 1.0,
-        scaleMobile: 1.0,
-        backgroundColor: 0x07192f,
-        backgroundAlpha: 1,
-        color1: 0xff0000,
-        color2: 0x00d1ff,
-        colorMode: 'varianceGradient',
-        quantity: 4,
-        birdSize: 1,
-        wingSpan: 30,
-        speedLimit: 5,
-        separation: 20,
-        alignment: 37,
-        cohesion: 20,
-      });
-    }
-
-    return () => {
-      if (vantaEffect.current) {
-        vantaEffect.current.destroy();
-        vantaEffect.current = null;
-      }
-    };
-  }, []);
-
   return (
-    <section
-      ref={vantaRef}
-      id="animation-bg"
-      className="relative py-16 sm:py-24 flex items-center justify-center overflow-hidden"
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/90 z-0" />
+    <section className="relative py-16 sm:py-24 flex items-center justify-center overflow-hidden bg-transparent">
+      {/* No Vanta background, just plain transparent */}
 
       {/* Main Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
         <div
-          className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
+          className={`transform transition-all duration-1000 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
         >
           {/* Hello */}
           <div className="mb-3 sm:mb-4 opacity-0 translate-y-3 transition-opacity duration-1000 ease-out delay-200 animate-fade-in">
-            <span className="text-amber-400 text-3xl sm:text-lg font-extrabold  tracking-wide">
+            <span className="text-amber-400 text-3xl sm:text-lg font-extrabold tracking-wide">
               Hello, I'm
             </span>
           </div>

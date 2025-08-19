@@ -1,35 +1,37 @@
-
-import React, { Suspense, lazy } from 'react';
-import { Link } from 'react-router-dom';
-import Loader from '../components/Loader';
-import LazyImage from '../components/LazyImage';
-import HeroSection from '../components/HeroSection';
-
-const VideoSection = lazy(() => import('../components/VideoSection'));
-const PhotographySection = lazy(() => import('../components/PhotographySection'));
-const BestProjects = lazy(() => import('../components/BestProjects'));
+import React, { Suspense } from "react";
+import Loader from "../components/Loader";
+import HeroSection from "../components/HeroSection";
+import About from "./About";
+import Contact from "./Contact";
+import VantaBackground from "../components/VantaBackground";
+import Portfolio from "./Portfolio";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Enhanced Hero Section */}
-      <HeroSection />
+  
+   <div className="min-h-screen bg-transparent text-white">
+  {/* Hero Section */}
+  <section id="hero" className="bg-transparent">
+    <HeroSection />
+  </section>
 
-      {/* Video Projects Section */}
-      <Suspense fallback={<Loader />}>
-        <VideoSection />
-      </Suspense>
+  {/* About Section */}
+  <section id="about" className="bg-transparent">
+    <About />
+  </section>
 
-      {/* Photography Projects Section */}
-      <Suspense fallback={<Loader />}>
-        <PhotographySection />
-      </Suspense>
+  {/* Portfolio Section */}
+  {/* <section id="portfolio" className="bg-transparent">
+    <Portfolio />
+  </section> */}
 
-      {/* Best Projects Section */}
-      <Suspense fallback={<Loader />}>
-        <BestProjects />
-      </Suspense>
-    </div>
+  {/* Contact Section */}
+  <section id="contact" className="bg-transparent">
+    <Contact />
+  </section>
+</div>
+
+    
   );
 };
 

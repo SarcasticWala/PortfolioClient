@@ -25,9 +25,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <div className="min-h-screen bg-transparent text-white pt-20">
       {/* Header */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center mb-6">
             <ContactIcon className="text-amber-500 mr-3" size={40} />
@@ -43,7 +43,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Info */}

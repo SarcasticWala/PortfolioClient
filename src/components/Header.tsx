@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { Camera, Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,15 +15,19 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", id: "hero" },
+    { name: "About", id: "about" },
+    { name: "Portfolio", id: "portfolio" },
+    { name: "Contact", id: "contact" },
   ];
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false); // close menu on route change
-  }, [location.pathname]);
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header
@@ -34,30 +36,25 @@ const Header = () => {
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 flex items-center justify-between max-w-7xl">
-        <Link
-          to="/"
-          className="flex items-center space-x-2 text-amber-500 font-bold text-lg sm:text-xl shrink-0"
+        <div
+          onClick={() => scrollToSection("hero")}
+          className="flex items-center space-x-2 text-amber-500 font-bold text-lg sm:text-xl cursor-pointer"
         >
           <Camera size={20} className="sm:w-6 sm:h-6" />
           <span className="hidden sm:inline">PORTFOLIO</span>
           <span className="sm:hidden">AYAN</span>
-        </Link>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden sm:flex space-x-4 sm:space-x-8">
           {navItems.map((item) => (
-            <Link
+            <button
               key={item.name}
-              to={item.path}
-              className={`text-sm sm:text-base text-white hover:text-amber-500 transition-colors duration-200 relative ${
-                location.pathname === item.path ? "text-amber-500" : ""
-              }`}
+              onClick={() => scrollToSection(item.id)}
+              className="text-sm sm:text-base text-white hover:text-amber-500 transition-colors duration-200 relative"
             >
               {item.name}
-              {location.pathname === item.path && (
-                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-amber-500"></div>
-              )}
-            </Link>
+            </button>
           ))}
         </div>
 
@@ -73,18 +70,15 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="sm:hidden bg-white/5 backdrop-blur-md px-6 py-4">
-
           <div className="flex flex-col space-y-4">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.name}
-                to={item.path}
-                className={`text-white text-base hover:text-amber-500 transition-colors duration-200 ${
-                  location.pathname === item.path ? "text-amber-500" : ""
-                }`}
+                onClick={() => scrollToSection(item.id)}
+                className="text-white text-base hover:text-amber-500 transition-colors duration-200"
               >
                 {item.name}
-              </Link>
+              </button>
             ))}
           </div>
         </div>

@@ -92,6 +92,7 @@ All colors MUST be HSL.
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* Optimized animations for better performance */

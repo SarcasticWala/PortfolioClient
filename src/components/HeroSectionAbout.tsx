@@ -1,13 +1,5 @@
-// src/components/AboutHero.tsx
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import LazyImage from './LazyImage';
-
-declare global {
-  interface Window {
-    VANTA: any;
-    THREE: any;
-  }
-}
 
 interface AboutHeroProps {
   user: {
@@ -19,47 +11,11 @@ interface AboutHeroProps {
 }
 
 const AboutHero: React.FC<AboutHeroProps> = ({ user }) => {
-  const vantaRef = useRef(null);
-  const vantaEffect = useRef<any>(null);
-
-  useEffect(() => {
-    if (
-      !vantaEffect.current &&
-      window.VANTA &&
-      window.VANTA.NET &&
-      vantaRef.current
-    ) {
-      vantaEffect.current = window.VANTA.NET({
-        el: vantaRef.current,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        scale: 1.0,
-        scaleMobile: 1.0,
-        color: 0x5f3fff,
-        backgroundColor: 0x23153c,
-        points: 10.0,
-        maxDistance: 20.0,
-        spacing: 19.0,
-        showDots: true,
-      });
-    }
-
-    return () => {
-      if (vantaEffect.current) {
-        vantaEffect.current.destroy();
-        vantaEffect.current = null;
-      }
-    };
-  }, []);
-
   return (
-    <section ref={vantaRef} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 z-0" />
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-20 relative bg-transparent">
+      <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
             <div>
               <h1 className="text-6xl font-bold mb-4">
@@ -86,6 +42,7 @@ const AboutHero: React.FC<AboutHeroProps> = ({ user }) => {
             </div>
           </div>
 
+          {/* Right Image Section */}
           <div className="relative animate-scale-in">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-amber-500/20">
               <LazyImage

@@ -17,7 +17,7 @@ const About = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white pt-20 relative">
+    <div className="min-h-screen bg-transparent text-white pt-20 relative">
       <AnimatedBackground />
       
       {/* Hero Section */}
